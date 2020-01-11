@@ -9,14 +9,16 @@
 import Foundation
 
 extension Player {
-    enum PlayResults {
-        case strikeout
-        case walk
-        case single
-        case double
-        case triple
-        case homerun
+    enum PlayResults: String {
+        case strikeout = "Strikeout"
+        case walk = "Walk"
+        case single = "Single"
+        case double = "Double"
+        case triple = "Triple"
+        case homerun = "homerun"
     }
+    
+
     
     func getDiceResults(dice1: Int, dice2: Int) -> PlayResults {
         

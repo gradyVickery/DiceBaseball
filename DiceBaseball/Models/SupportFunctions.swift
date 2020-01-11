@@ -1,5 +1,5 @@
 //
-//  Dice.swift
+//  SupportFunctions.swift
 //  DiceBaseball
 //
 //  Created by Grady Vickery on 1/10/20.
@@ -8,10 +8,7 @@
 
 import Foundation
 
-struct Dice {
-    
     func rollDice() -> [Int] {
-        print("tapped")
         var leftDiceRoll = Int.random(in: 1...6)
         var rightDiceRoll = Int.random(in: 1...6)
                
@@ -21,8 +18,6 @@ struct Dice {
             leftDiceRoll = rightDiceRoll
             rightDiceRoll = diceTemp
         }
-
         return [leftDiceRoll, rightDiceRoll]
-
     }
-}
+

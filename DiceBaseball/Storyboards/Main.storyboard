@@ -1123,29 +1123,29 @@
                         <outlet property="fullNameLabel" destination="sXp-Is-3Je" id="EoP-Bk-U3n"/>
                         <outlet property="hitterTypeLabel" destination="KbE-gh-v42" id="DGd-CI-jxm"/>
                         <outlet property="jerseyNumberLabel" destination="bRR-qY-wDa" id="R0M-64-yb4"/>
-                        <outlet property="playResult11" destination="ruc-y2-acw" id="OQi-ex-F25"/>
-                        <outlet property="playResult12" destination="WmP-4k-B1g" id="pKt-IS-X6p"/>
-                        <outlet property="playResult13" destination="ewo-lM-MtT" id="SgC-6t-vjP"/>
-                        <outlet property="playResult14" destination="ApB-U3-mjb" id="okE-5b-9W4"/>
-                        <outlet property="playResult15" destination="5DI-YE-0W8" id="ojd-IX-Ve5"/>
-                        <outlet property="playResult16" destination="juZ-Rd-yYS" id="Wq2-MS-HN5"/>
-                        <outlet property="playResult22" destination="N2w-hM-r6r" id="ptm-8V-aNN"/>
-                        <outlet property="playResult23" destination="7PD-K3-f1W" id="hFg-8N-lBL"/>
-                        <outlet property="playResult24" destination="3lH-sA-adM" id="5MQ-jh-VsB"/>
-                        <outlet property="playResult25" destination="5Ea-Bh-D7O" id="460-B7-ddc"/>
-                        <outlet property="playResult26" destination="JSX-E0-NV8" id="2sz-no-Do8"/>
-                        <outlet property="playResult33" destination="nUy-dX-3Ua" id="S5w-rJ-2p1"/>
-                        <outlet property="playResult34" destination="Zq0-SP-g1q" id="raq-0e-HfS"/>
-                        <outlet property="playResult35" destination="7sz-if-A6l" id="epK-tG-kII"/>
-                        <outlet property="playResult36" destination="oEL-5L-LtW" id="BOU-i2-PfF"/>
-                        <outlet property="playResult44" destination="zze-Q9-Mvs" id="sWX-5s-n5z"/>
-                        <outlet property="playResult45" destination="EdV-nL-kMk" id="Mps-6M-Vyd"/>
-                        <outlet property="playResult46" destination="4gc-67-dG6" id="8X9-vr-wEt"/>
-                        <outlet property="playResult55" destination="fY5-yo-ekU" id="2y3-KW-Erk"/>
-                        <outlet property="playResult56" destination="Mb7-Qx-Wv1" id="iId-C8-aPm"/>
-                        <outlet property="playResult66" destination="54C-CZ-Ojg" id="pAv-3m-br6"/>
                         <outlet property="positionLabel" destination="hEc-F5-8WV" id="stG-p4-U8c"/>
                         <outlet property="teamNameLabel" destination="TEa-CK-gth" id="TG0-KY-sLx"/>
+                        <outletCollection property="diceResults" destination="ruc-y2-acw" collectionClass="NSMutableArray" id="4dN-uG-2PZ"/>
+                        <outletCollection property="diceResults" destination="WmP-4k-B1g" collectionClass="NSMutableArray" id="ISD-qh-eia"/>
+                        <outletCollection property="diceResults" destination="ewo-lM-MtT" collectionClass="NSMutableArray" id="z7Q-bi-6gY"/>
+                        <outletCollection property="diceResults" destination="ApB-U3-mjb" collectionClass="NSMutableArray" id="NPZ-vh-c5v"/>
+                        <outletCollection property="diceResults" destination="5DI-YE-0W8" collectionClass="NSMutableArray" id="igb-1B-PZx"/>
+                        <outletCollection property="diceResults" destination="juZ-Rd-yYS" collectionClass="NSMutableArray" id="nct-9r-Yly"/>
+                        <outletCollection property="diceResults" destination="N2w-hM-r6r" collectionClass="NSMutableArray" id="xW8-hz-9dr"/>
+                        <outletCollection property="diceResults" destination="7PD-K3-f1W" collectionClass="NSMutableArray" id="owv-RJ-VTc"/>
+                        <outletCollection property="diceResults" destination="3lH-sA-adM" collectionClass="NSMutableArray" id="l9A-Y7-6TX"/>
+                        <outletCollection property="diceResults" destination="5Ea-Bh-D7O" collectionClass="NSMutableArray" id="xeF-Lc-Pki"/>
+                        <outletCollection property="diceResults" destination="JSX-E0-NV8" collectionClass="NSMutableArray" id="cY5-m1-g4Q"/>
+                        <outletCollection property="diceResults" destination="nUy-dX-3Ua" collectionClass="NSMutableArray" id="416-Np-Q2S"/>
+                        <outletCollection property="diceResults" destination="Zq0-SP-g1q" collectionClass="NSMutableArray" id="2A2-g7-bst"/>
+                        <outletCollection property="diceResults" destination="7sz-if-A6l" collectionClass="NSMutableArray" id="ugH-hZ-BdV"/>
+                        <outletCollection property="diceResults" destination="oEL-5L-LtW" collectionClass="NSMutableArray" id="LQs-mu-pkS"/>
+                        <outletCollection property="diceResults" destination="zze-Q9-Mvs" collectionClass="NSMutableArray" id="hIF-Q3-Vca"/>
+                        <outletCollection property="diceResults" destination="EdV-nL-kMk" collectionClass="NSMutableArray" id="blj-AZ-PO0"/>
+                        <outletCollection property="diceResults" destination="4gc-67-dG6" collectionClass="NSMutableArray" id="7sx-7a-rBP"/>
+                        <outletCollection property="diceResults" destination="fY5-yo-ekU" collectionClass="NSMutableArray" id="mBh-I5-oZL"/>
+                        <outletCollection property="diceResults" destination="Mb7-Qx-Wv1" collectionClass="NSMutableArray" id="wLR-hR-Y17"/>
+                        <outletCollection property="diceResults" destination="54C-CZ-Ojg" collectionClass="NSMutableArray" id="ud5-EL-fcD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60l-f2-ARi" userLabel="First Responder" sceneMemberID="firstResponder"/>

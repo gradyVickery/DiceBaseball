@@ -33,6 +33,7 @@ public class Player {
     let number: Int
     let position: Position
     let hitterType: HitterType
+    var teamName: String = ""
     
     init(firstName: String, lastName: String, number: Int, position: Position, hitterType: HitterType) {
         self.firstName = firstName

@@ -17,4 +17,11 @@ struct Team {
         self.name = name
         self.players = players
     }
+    
+    func assignTeamName() {
+        for player in players {
+            player.teamName = name
+        }
+    }
+    
 }

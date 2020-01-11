@@ -11,7 +11,7 @@ import Foundation
 public struct League {
     
     let teams = [
-        Team(name: "Braves", players: [
+        Team(name: "Rollers", players: [
             Player(firstName: "John", lastName: "Smith", number: 10, position: .centerfield, hitterType: .Average),
             Player(firstName: "Bob", lastName: "Todd", number: 3, position: .secondbase, hitterType: .Average),
             Player(firstName: "Ted", lastName: "Rodgers", number: 24, position: .shortstop, hitterType: .Average),
@@ -36,6 +36,11 @@ public struct League {
             Player(firstName: "Kurt", lastName: "Switzer", number: 1, position: .pitcher, hitterType: .Average),
         ])
     ]
-
+    func assignTeamNames() {
+        for team in teams {
+            team.assignTeamName()
+        }
+    }
+    
 }
 
