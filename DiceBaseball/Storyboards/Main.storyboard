@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ILe-80-sLJ" userLabel="scoreboard" customClass="ScoreboardStackView" customModule="DiceBaseball" customModuleProvider="target">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ILe-80-sLJ" userLabel="scoreboard">
                                 <rect key="frame" x="0.0" y="8" width="375" height="140"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="White Oak Field" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-cG-QZ7">
@@ -289,6 +289,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qsB-FS-Iil"/>
                     </view>
+                    <connections>
+                        <outlet property="leftDiceImage" destination="l3r-8L-pE4" id="XJt-cb-W25"/>
+                        <outlet property="rightDiceImage" destination="4Pb-v3-YgY" id="JVD-Hs-1Dz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

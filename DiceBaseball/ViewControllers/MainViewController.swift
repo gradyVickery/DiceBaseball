@@ -9,25 +9,33 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
-    var teams = League.createTeams()
-    var awayTeam: Team
+    let dice = Dice()
+    var league = League()
+    let awayTeam: Team
+    let homeTeam: Team
     var currentBatter: Player
     
+    @IBOutlet weak var leftDiceImage: UIImageView!
+    @IBOutlet weak var rightDiceImage: UIImageView!
+    
+    
     required init?(coder: NSCoder) {
-        self.awayTeam = teams[0]
+        self.awayTeam = league.teams[0]
+        self.homeTeam = league.teams[1]
         self.currentBatter = awayTeam.players[0]
         super.init(coder: coder)
-    }
+   }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(currentBatter.firstName + " " + currentBatter.lastName)
     }
 
     @IBAction func rollTapped(_ sender: Any) {
-        print("tapped")
+        let rollArray = dice.rollDice()
+        
+        leftDiceImage.image = UIImage(named: "Dice\(rollArray[0])")
+        rightDiceImage.image = UIImage(named: "Dice\(rollArray[1])")
     }
     
     // segue to player card
@@ -38,5 +46,7 @@ class MainViewController: UIViewController {
             controller.currentBatter = currentBatter
          }
      }
+    
+   
 }
 

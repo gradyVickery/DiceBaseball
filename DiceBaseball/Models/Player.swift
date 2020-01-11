@@ -12,20 +12,20 @@ public class Player {
 
     enum HitterType: String {
         case Average = "Average"
-        case Power 
-        case Contact
-        case Strikeout
+        case Power = "Power"
+        case Contact = "Contact"
+        case Strikeout = "Strikeout"
     }
     enum Position: String {
-        case firstbase
-        case secondbase
-        case thirdbase
-        case shortstop
-        case pitcher
-        case catcher = "Catcher"
-        case leftfield
-        case rightfield
-        case centerfield
+        case firstbase = "1st"
+        case secondbase = "2nd"
+        case thirdbase = "3rd"
+        case shortstop = "SS"
+        case pitcher = "P"
+        case catcher = "C"
+        case leftfield = "LF"
+        case rightfield = "RF"
+        case centerfield = "CF"
     }
     
     let firstName: String
@@ -43,4 +43,5 @@ public class Player {
     }
     
 }
+
 
