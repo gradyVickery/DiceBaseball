@@ -45,7 +45,6 @@ class BaseballCardViewController: UIViewController {
         for i in 1...6 {
             for j in 1...6 {
                 if i >= control && j >= control {
-                    print(i, j)
                     diceResults[resultIndex].text = currentBatter.getDiceResults(dice1: i, dice2: j).rawValue
                     resultIndex += 1
                 }

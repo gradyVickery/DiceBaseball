@@ -30,13 +30,40 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         league.assignTeamNames()
+        leftDiceImage.alpha = 0
+        rightDiceImage.alpha = 0
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Prep for dice animation
+
+    }
+    
 
     @IBAction func rollTapped(_ sender: Any) {
         let rollArray = rollDice()
         
         leftDiceImage.image = UIImage(named: "Dice\(rollArray[0])")
         rightDiceImage.image = UIImage(named: "Dice\(rollArray[1])")
+        
+        leftDiceImage.center.x -= 50
+        rightDiceImage.center.x += 50
+        leftDiceImage.center.y += 300
+        rightDiceImage.center.y += 300
+        leftDiceImage.alpha = 1
+        rightDiceImage.alpha = 1
+        
+        
+        //animate dice in
+        UIView.animate(withDuration: 0.5, delay: 0.3, options: [], animations: {
+            self.leftDiceImage.center.x += 50
+            self.rightDiceImage.center.x -= 50
+            self.leftDiceImage.center.y -= 300
+            self.rightDiceImage.center.y -= 300
+        }, completion: nil)
+        
     }
     
     // segue to player card
