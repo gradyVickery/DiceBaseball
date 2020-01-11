@@ -10,8 +10,7 @@ import UIKit
 
 class BaseballCardViewController: UIViewController {
 
-    var currentBatter = Batter()
-    
+    var currentBatter = Player(firstName: "Test", lastName: "Name", number: 13, position: .catcher, hitterType: .Average)
     
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var fullNameLabel: UILabel!
@@ -56,10 +55,10 @@ class BaseballCardViewController: UIViewController {
     func fillCard() {
     
         fullNameLabel.text = currentBatter.firstName + currentBatter.lastName
-        positionLabel.text = currentBatter.position
-        teamNameLabel.text = currentBatter.teamName
-        jerseyNumberLabel.text = String(currentBatter.num)
-        hitterTypeLabel.text = currentBatter.hitterType
+        positionLabel.text = currentBatter.position.rawValue
+        teamNameLabel.text = "No Team Yet"
+        jerseyNumberLabel.text = String(currentBatter.number)
+        hitterTypeLabel.text = currentBatter.hitterType.rawValue
         
 //        playResult11.text = currentBatter.getPlayLabels(code: arrayCodes[0])
 //        playResult12.text = currentBatter.getPlayLabels(code: arrayCodes[1])

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		DEA9A2DC23C90E7E0020AD66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE250D7923C901B200098773 /* Main.storyboard */; };
 		DEA9A2DE23C90E9B0020AD66 /* BaseballCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9A2DD23C90E9B0020AD66 /* BaseballCardViewController.swift */; };
-		DEA9A2E023C90EC40020AD66 /* Batter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9A2DF23C90EC30020AD66 /* Batter.swift */; };
+		DEA9A2E023C90EC40020AD66 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9A2DF23C90EC30020AD66 /* Player.swift */; };
+		DED1CE1A23C933CE0043EEAE /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED1CE1923C933CE0043EEAE /* Team.swift */; };
+		DED1CE2023C939180043EEAE /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED1CE1F23C939180043EEAE /* League.swift */; };
 		DEFFA7A923C6634A0084B78F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFFA7A823C6634A0084B78F /* AppDelegate.swift */; };
 		DEFFA7AB23C6634A0084B78F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFFA7AA23C6634A0084B78F /* SceneDelegate.swift */; };
 		DEFFA7AD23C6634A0084B78F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFFA7AC23C6634A0084B78F /* MainViewController.swift */; };
@@ -20,7 +22,9 @@
 /* Begin PBXFileReference section */
 		DE250D7923C901B200098773 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DEA9A2DD23C90E9B0020AD66 /* BaseballCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseballCardViewController.swift; sourceTree = "<group>"; };
-		DEA9A2DF23C90EC30020AD66 /* Batter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Batter.swift; sourceTree = "<group>"; };
+		DEA9A2DF23C90EC30020AD66 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		DED1CE1923C933CE0043EEAE /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		DED1CE1F23C939180043EEAE /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		DEFFA7A523C6634A0084B78F /* DiceBaseball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiceBaseball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFFA7A823C6634A0084B78F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEFFA7AA23C6634A0084B78F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +75,9 @@
 		DEA9A2E423C913AB0020AD66 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DEA9A2DF23C90EC30020AD66 /* Batter.swift */,
+				DEA9A2DF23C90EC30020AD66 /* Player.swift */,
+				DED1CE1923C933CE0043EEAE /* Team.swift */,
+				DED1CE1F23C939180043EEAE /* League.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,8 +190,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DED1CE2023C939180043EEAE /* League.swift in Sources */,
+				DED1CE1A23C933CE0043EEAE /* Team.swift in Sources */,
 				DEFFA7AD23C6634A0084B78F /* MainViewController.swift in Sources */,
-				DEA9A2E023C90EC40020AD66 /* Batter.swift in Sources */,
+				DEA9A2E023C90EC40020AD66 /* Player.swift in Sources */,
 				DEA9A2DE23C90E9B0020AD66 /* BaseballCardViewController.swift in Sources */,
 				DEFFA7A923C6634A0084B78F /* AppDelegate.swift in Sources */,
 				DEFFA7AB23C6634A0084B78F /* SceneDelegate.swift in Sources */,
