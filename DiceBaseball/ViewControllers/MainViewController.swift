@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     let homeTeam: Team
     var currentBatter: Player
     var inningHalf = "top"
-    
+
     @IBOutlet weak var leftDiceImage: UIImageView!
     @IBOutlet weak var rightDiceImage: UIImageView!
     
@@ -34,20 +34,14 @@ class MainViewController: UIViewController {
         rightDiceImage.alpha = 0
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Prep for dice animation
-
-    }
-    
 
     @IBAction func rollTapped(_ sender: Any) {
         let rollArray = rollDice()
         
         leftDiceImage.image = UIImage(named: "Dice\(rollArray[0])")
         rightDiceImage.image = UIImage(named: "Dice\(rollArray[1])")
-        
+        leftDiceImage.transform = CGAffineTransform(rotationAngle: -.pi / 2)
+        rightDiceImage.transform = CGAffineTransform(rotationAngle: .pi + .pi / 2)
         leftDiceImage.center.x -= 50
         rightDiceImage.center.x += 50
         leftDiceImage.center.y += 300
@@ -57,11 +51,13 @@ class MainViewController: UIViewController {
         
         
         //animate dice in
-        UIView.animate(withDuration: 0.5, delay: 0.3, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.3, usingSpringWithDamping: 0.65, initialSpringVelocity: 0.8, options: [], animations: {
             self.leftDiceImage.center.x += 50
-            self.rightDiceImage.center.x -= 50
             self.leftDiceImage.center.y -= 300
+            self.leftDiceImage.transform = CGAffineTransform(rotationAngle: .pi / 2)
+            self.rightDiceImage.center.x -= 50
             self.rightDiceImage.center.y -= 300
+            self.rightDiceImage.transform = CGAffineTransform(rotationAngle: -.pi - .pi / 2)
         }, completion: nil)
         
     }
