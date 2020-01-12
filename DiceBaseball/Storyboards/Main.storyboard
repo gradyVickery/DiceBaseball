@@ -290,8 +290,16 @@
                         <viewLayoutGuide key="safeArea" id="qsB-FS-Iil"/>
                     </view>
                     <connections>
+                        <outlet property="atBatLabel" destination="xtE-KW-b5T" id="erE-mR-fv0"/>
+                        <outlet property="awayTeamScoreLabel" destination="4st-RX-CHx" id="g15-yn-BZM"/>
+                        <outlet property="fieldImage" destination="AQy-VY-Mmo" id="5QP-EA-1cb"/>
+                        <outlet property="homeTeamScoreLabel" destination="5Lk-rS-QPb" id="brt-K0-woj"/>
+                        <outlet property="inningLabel" destination="fW9-eH-WCt" id="Gdo-Ug-fYv"/>
                         <outlet property="leftDiceImage" destination="l3r-8L-pE4" id="XJt-cb-W25"/>
+                        <outlet property="outsLabel" destination="9eC-yA-uIt" id="3jH-60-E9B"/>
+                        <outlet property="playResultLabel" destination="3KN-aj-hub" id="hg0-zz-kX0"/>
                         <outlet property="rightDiceImage" destination="4Pb-v3-YgY" id="JVD-Hs-1Dz"/>
+                        <outlet property="secondaryPlayLabel" destination="utG-cW-ScF" id="OwA-YQ-zpK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
