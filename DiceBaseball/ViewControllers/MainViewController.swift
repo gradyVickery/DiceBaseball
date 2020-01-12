@@ -25,6 +25,8 @@ class MainViewController: UIViewController {
     var inning = 1
     var outs = 0
     
+    var rollButtonIsAnimated = false
+    
     @IBOutlet weak var awayTeamScoreLabel: UILabel!
     @IBOutlet weak var homeTeamScoreLabel: UILabel!
     @IBOutlet weak var inningLabel: UILabel!
@@ -36,6 +38,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var rightDiceImage: UIImageView!
     @IBOutlet weak var fieldImage: UIImageView!
     
+    @IBOutlet weak var rollButton: UIButton!
+    
+    
     required init?(coder: NSCoder) {
         self.awayTeam = league.teams[0]
         self.homeTeam = league.teams[1]
@@ -45,6 +50,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // will move
+        startButtonAnimation()
+        
         league.assignTeamNames()
         leftDiceImage.alpha = 0
         rightDiceImage.alpha = 0
@@ -55,10 +64,14 @@ class MainViewController: UIViewController {
         atBatLabel.text = currentBatter.lastName + " " + currentBatter.position.rawValue
     }
     
+
+    
     
     // MARK:- Gameplay
     @IBAction func rollTapped(_ sender: Any) {
- 
+        stopButtonAnimation()
+        rollButton.alpha = 0.3
+        rollButton.isEnabled = false
         playResultLabel.alpha = 1
         secondaryPlayLabel.alpha = 1
         
@@ -69,13 +82,16 @@ class MainViewController: UIViewController {
     
         playResultLabel.text = currentBatter.getDiceResults(dice1: rollArray[0], dice2: rollArray[1]).rawValue
         secondaryPlayLabel.text = "Ready for next batter"
-        animatePlayLabelsIn()
+        animatePlayLabels()
         
         // TODO:- handle after at bat
         // will need to check outs, inning, team, score before call
         delay(6.0) {
             self.nextBatter()
-            self.animatePlayLabelsOut() // Fading out currently
+            self.rollButton.isEnabled = true
+            self.rollButton.alpha = 1
+            self.startButtonAnimation()
+            
         }
     }
     
@@ -83,7 +99,7 @@ class MainViewController: UIViewController {
         // *** WIll need to determine home or away roster
         // *** Need to check inning state: Outs, top/bottom, etc..
         // change to incorporate 3 outs and change to opponent roster
-        if awayBatterIndex < awayTeam.players.count {
+        if awayBatterIndex < awayTeam.players.count - 1 {
             awayBatterIndex += 1
         } else {
             awayBatterIndex = 0
@@ -94,29 +110,44 @@ class MainViewController: UIViewController {
     }
 
     // MARK:- Animations
-    func animatePlayLabelsIn() {
+    func animatePlayLabels() {
         playResultLabel.center.x -= view.bounds.width
         secondaryPlayLabel.center.x += view.bounds.width
         UIView.animate(withDuration: 0.5, delay: 0.9, options: [], animations:  {
             self.playResultLabel.center.x += self.view.bounds.width
         }, completion: nil)
-        UIView.animate(withDuration: 0.5, delay: 3, options: [], animations: {
+        UIView.animate(withDuration: 0.5, delay: 2.1, options: [], animations: {
             self.secondaryPlayLabel.center.x -= self.view.bounds.width
-        }, completion: nil)
-        
-        
+        }, completion: {
+            finished in
+            UIView.animate(withDuration: 0.3, delay: 1.5, options: [], animations: {
+                self.playResultLabel.center.x -= self.view.bounds.width
+            }, completion: {
+                finished in
+                self.playResultLabel.text = ""
+                UIView.animate(withDuration: 0.8, delay: 0.6, options: [], animations: {
+                    self.secondaryPlayLabel.alpha = 0
+                }, completion: nil)
+            })
+        })
     }
-    func animatePlayLabelsOut() {
-        
-        // Fades labels off screen
-        UIView.animate(withDuration: 0.6, animations: {
-            self.playResultLabel.alpha = 0
-        })
-        UIView.animate(withDuration: 1.1, animations: {
-            self.secondaryPlayLabel.alpha = 0
-        })
+    func startButtonAnimation() {
+        // animate Roll button
+        rollButtonIsAnimated = true
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.repeat, .autoreverse, .allowUserInteraction ], animations: {
+            self.rollButton.alpha = 0.3
+            
+        }, completion: nil)
     }
     
+    func stopButtonAnimation() {
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: [], animations: {
+            self.rollButton.alpha = 1.0
+            
+        }, completion: nil)
+        rollButtonIsAnimated = false
+    }
+
     func animateDice() {
         // Before dice animation setup
         leftDiceImage.transform = CGAffineTransform(rotationAngle: -.pi / 2)

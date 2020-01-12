@@ -299,6 +299,7 @@
                         <outlet property="outsLabel" destination="9eC-yA-uIt" id="3jH-60-E9B"/>
                         <outlet property="playResultLabel" destination="3KN-aj-hub" id="hg0-zz-kX0"/>
                         <outlet property="rightDiceImage" destination="4Pb-v3-YgY" id="JVD-Hs-1Dz"/>
+                        <outlet property="rollButton" destination="Vz7-LY-dNC" id="dgj-V3-o0d"/>
                         <outlet property="secondaryPlayLabel" destination="utG-cW-ScF" id="OwA-YQ-zpK"/>
                     </connections>
                 </viewController>
