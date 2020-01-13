@@ -10,8 +10,7 @@ import UIKit
 
 class BaseballCardViewController: UIViewController {
 
-    var currentBatter = Player(firstName: "Test", lastName: "Name", number: 13, position: .catcher, hitterType: .Average)
-    var teamName = ""
+    var currentBatter: Player?
     
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var fullNameLabel: UILabel!
@@ -23,7 +22,6 @@ class BaseballCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fillCard()
-      
     }
 
     @IBAction func backToMainButton(_ sender: UIButton) {
@@ -32,24 +30,25 @@ class BaseballCardViewController: UIViewController {
     
     // fill card info
     func fillCard() {
-    
-        fullNameLabel.text = currentBatter.firstName + currentBatter.lastName
-        positionLabel.text = currentBatter.position.rawValue
-        teamNameLabel.text = currentBatter.teamName
-        jerseyNumberLabel.text = String(currentBatter.number)
-        hitterTypeLabel.text = currentBatter.hitterType.rawValue
-        
-        // for loop to get diceResults
-        var control = 1
-        var resultIndex = 0
-        for i in 1...6 {
-            for j in 1...6 {
-                if i >= control && j >= control {
-                    diceResults[resultIndex].text = currentBatter.getDiceResults(dice1: i, dice2: j).rawValue
-                    resultIndex += 1
+        if let batter = currentBatter {
+            fullNameLabel.text = batter.firstName + " " + batter.lastName
+            positionLabel.text = batter.position.rawValue
+            teamNameLabel.text = batter.teamName
+            jerseyNumberLabel.text = String(batter.number)
+            hitterTypeLabel.text = batter.hitterType.rawValue
+            
+            // loop for diceResult images
+            var control = 1
+            var resultIndex = 0
+            for i in 1...6 {
+                for j in 1...6 {
+                    if i >= control && j >= control {
+                        diceResults[resultIndex].text = batter.getDiceResults(dice1: i, dice2: j).rawValue
+                        resultIndex += 1
+                    }
                 }
+                control += 1
             }
-            control += 1
         }
     }
 }
