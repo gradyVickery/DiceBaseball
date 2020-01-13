@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     var dice = Dice()
     var resultLabels = ResultLabels()
     var league = League()
+    var rollResultText = ""
     
     var leftDiceImage = UIImageView()
     var rightDiceImage = UIImageView()
@@ -73,45 +74,37 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func newGameTapped(_ sender: UIButton) {
-        secondaryLabel.text = ""
+        resultLabels.slideSecondaryLabelOut(withDelay: 0.5)
         league.assignTeamNames()
+        
+        // update scoreboard labels
         inningLabel.text = inningHalf + " " + String(inning)
         atBatLabel.text = currentBatter.lastName + " " + currentBatter.position.rawValue
-        
-        delay(3.0) {
-            self.mainLabel.text = "Play Ball!"
-            UIView.animate(withDuration: 2.0, animations: {
-                self.mainLabel.alpha = 0.0
-                
-            })
-            delay(2.0) {
-                self.startButtonAnimation()
-                self.mainLabel.text = ""
-            }
+        mainLabel.text = "Play Ball!"
+        resultLabels.fadeMainLabelOut(withDelay: 3.0)
+        delay(5.0) {
+            self.startButtonAnimation()
+            self.mainLabel.text = ""
         }
+
     }
 
     // MARK:- Gameplay
     @IBAction func rollTapped(_ sender: Any) {
-        
         leftDiceImage.alpha = 0
         rightDiceImage.alpha = 0
-        
         stopButtonAnimation()
-        //secondaryLabel.alpha = 1
-        
         let rollTuple = dice.rollDice()
-        
         dice.animateDice()
         let rollResult = currentBatter.getDiceResults(dice1: rollTuple.0, dice2: rollTuple.1)
-        
-        mainLabel.text = rollResult.rawValue
-        resultLabels.slideMainLabelIn()
-        print(rollResult.rawValue)
+        rollResultText = rollResult.rawValue
+
+        handleResultLabels()
         
         // *************** //
-        // TODO:- handle after at bat
+        // TODO:- handle baserunners, runs, outs, inning changes
         
+        // delay allows labels time to be read
         delay(6.0) {
             self.nextBatter()
             self.startButtonAnimation()
@@ -129,7 +122,18 @@ class MainViewController: UIViewController {
         currentBatter = awayTeam.players[awayBatterIndex]
         atBatLabel.text = currentBatter.lastName + " " + currentBatter.position.rawValue
     }
-
+    
+    
+    
+    func handleResultLabels() {
+        mainLabel.text = rollResultText
+        secondaryLabel.text = "You have baserunners on 1st and 3rd"
+        
+        resultLabels.slideMainLabelIn(withDelay: 0.9)
+        resultLabels.slideSecondaryLabelIn(withDelay: 2.1)
+        resultLabels.slideMainLabelOut(withDelay: 5.0)
+        resultLabels.slideSecondaryLabelOut(withDelay: 6.0)
+    }
     // MARK:- Animation
     func startButtonAnimation() {
         // animate Roll button

@@ -32,40 +32,64 @@ class ResultLabels: UIView {
         mainLabel.textColor = .white
         mainLabel.textAlignment = .center
         mainLabel.font = UIFont.boldSystemFont(ofSize: 34)
+        mainLabel.shadowColor = UIColor.black
+        mainLabel.shadowOffset = CGSize(width: 3, height: 3)
         
-        secondaryLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 100)
+        secondaryLabel.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 100)
         secondaryLabel.text = "Testing 1, 2, 3"
         secondaryLabel.center = CGPoint(x: screenWidth/2, y: screenHeight/2 + 40)
+        secondaryLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         secondaryLabel.textColor = .white
         secondaryLabel.textAlignment = .center
-    }
-    
-    func slideMainLabelIn() {
         
-        mainLabel.alpha = 1
-        mainLabel.center.x -= screenWidth
-        UIView.animate(withDuration: 0.5, delay: 0.9, options: [], animations:  {
-            self.mainLabel.center.x += self.screenWidth
-            }, completion: {
-                finished in
-                self.slideMainLabelOut()
-        })
+        secondaryLabel.shadowColor = UIColor.black
+        secondaryLabel.shadowOffset = CGSize(width: 1, height: 4)
+       
     }
     
-    func slideMainLabelOut() {
-        UIView.animate(withDuration: 0.5, delay: 3.0, options: [], animations:  {
+    func slideMainLabelIn(withDelay delay: Double) {
+        mainLabel.center.x -= screenWidth
+        mainLabel.alpha = 1
+        UIView.animate(withDuration: 0.5, delay: delay, options: [], animations:  {
+            self.mainLabel.center.x += self.screenWidth
+            }, completion: nil)
+    }
+    
+    func slideMainLabelOut(withDelay delay: Double) {
+        UIView.animate(withDuration: 0.5, delay: delay, options: [], animations:  {
                    self.mainLabel.center.x -= self.screenWidth
         }, completion: {
             finished in
             self.mainLabel.alpha = 0.0
+            self.mainLabel.text = ""
             self.mainLabel.center.x = self.screenWidth/2
         })
     }
-    
-    func slideSecondaryLabelIn() {
-        
+    func fadeMainLabelOut(withDelay delay: Double) {
+        mainLabel.alpha = 1
+        UIView.animate(withDuration: 2.0, delay: delay, options: [], animations: {
+            self.mainLabel.alpha = 0.0
+        }, completion: {
+            finished in
+            self.mainLabel.text = ""
+        } )
     }
-    func slideSecondaryLabelOut() {
-        
+    
+    func slideSecondaryLabelIn(withDelay delay: Double) {
+        secondaryLabel.center.x -= screenWidth
+        secondaryLabel.alpha = 1
+        UIView.animate(withDuration: 0.5, delay: delay, options: [], animations: {
+            self.secondaryLabel.center.x += self.screenWidth
+        }, completion: nil)
+    }
+    func slideSecondaryLabelOut(withDelay delay: Double) {
+        UIView.animate(withDuration: 0.5, delay: delay, options: [], animations:  {
+            self.secondaryLabel.center.x -= self.screenWidth
+        }, completion: {
+            finished in
+            self.secondaryLabel.alpha = 0.0
+            self.secondaryLabel.text = ""
+            self.secondaryLabel.center.x = self.screenWidth/2
+        })
     }
 }
