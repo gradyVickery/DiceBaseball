@@ -186,7 +186,7 @@
                                 <rect key="frame" x="0.0" y="156" width="375" height="327"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.29803921568627451" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KN-aj-hub">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KN-aj-hub">
                                 <rect key="frame" x="144" y="262" width="87.5" height="41"/>
                                 <rect key="contentStretch" x="0.40000000000000002" y="0.0" width="1" height="1"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
@@ -195,7 +195,7 @@
                                 <color key="shadowColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <size key="shadowOffset" width="1" height="0.0"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utG-cW-ScF" userLabel="secondaryLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utG-cW-ScF" userLabel="secondaryLabel">
                                 <rect key="frame" x="156.5" y="341" width="62" height="31"/>
                                 <rect key="contentStretch" x="0.40000000000000002" y="0.0" width="1" height="1"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
@@ -300,9 +300,7 @@
                         <outlet property="homeTeamScoreLabel" destination="5Lk-rS-QPb" id="brt-K0-woj"/>
                         <outlet property="inningLabel" destination="fW9-eH-WCt" id="Gdo-Ug-fYv"/>
                         <outlet property="outsLabel" destination="9eC-yA-uIt" id="3jH-60-E9B"/>
-                        <outlet property="playResultLabel" destination="3KN-aj-hub" id="hg0-zz-kX0"/>
                         <outlet property="rollButton" destination="Vz7-LY-dNC" id="dgj-V3-o0d"/>
-                        <outlet property="secondaryPlayLabel" destination="utG-cW-ScF" id="OwA-YQ-zpK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
