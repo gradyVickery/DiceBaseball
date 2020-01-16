@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,8 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ILe-80-sLJ" userLabel="scoreboard">
-                                <rect key="frame" x="0.0" y="8" width="375" height="140"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="1" id="ILe-80-sLJ" userLabel="scoreboard">
+                                <rect key="frame" x="0.0" y="12" width="375" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="White Oak Field" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9b-cG-QZ7">
                                         <rect key="frame" x="78" y="0.0" width="219" height="36"/>
@@ -181,29 +182,13 @@
                                     <constraint firstAttribute="trailing" secondItem="0FB-Zg-fbE" secondAttribute="trailing" constant="12" id="kF3-u7-qLa"/>
                                     <constraint firstItem="iws-G2-mdR" firstAttribute="leading" secondItem="ILe-80-sLJ" secondAttribute="leading" constant="12" id="sLS-Ql-6Zf"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="gog-Ae-G6V"/>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="basesEmptyField" translatesAutoresizingMaskIntoConstraints="NO" id="AQy-VY-Mmo">
-                                <rect key="frame" x="0.0" y="156" width="375" height="327"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="basesEmptyField" id="AQy-VY-Mmo">
+                                <rect key="frame" x="0.0" y="173" width="375" height="327"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.29803921568627451" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KN-aj-hub">
-                                <rect key="frame" x="144" y="262" width="87.5" height="41"/>
-                                <rect key="contentStretch" x="0.40000000000000002" y="0.0" width="1" height="1"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <color key="textColor" red="0.92156862745098034" green="0.9882352941176471" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <size key="shadowOffset" width="1" height="0.0"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utG-cW-ScF" userLabel="secondaryLabel">
-                                <rect key="frame" x="156.5" y="341" width="62" height="31"/>
-                                <rect key="contentStretch" x="0.40000000000000002" y="0.0" width="1" height="1"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                <color key="textColor" red="0.92144691780821919" green="0.98972620835479452" blue="0.88294627568493156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                <size key="shadowOffset" width="1" height="-1"/>
-                            </label>
                             <stackView opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" verticalHuggingPriority="248" axis="vertical" distribution="fillEqually" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="CJS-kQ-6Ys" userLabel="below field stack">
                                 <rect key="frame" x="12" y="508" width="351" height="134"/>
                                 <subviews>
@@ -276,20 +261,15 @@
                         <constraints>
                             <constraint firstItem="CJS-kQ-6Ys" firstAttribute="centerX" secondItem="pvL-7n-jZe" secondAttribute="centerX" id="3Jg-mc-IdT"/>
                             <constraint firstItem="CJS-kQ-6Ys" firstAttribute="leading" secondItem="qsB-FS-Iil" secondAttribute="leading" constant="12" id="5CK-Pa-jZP"/>
-                            <constraint firstItem="3KN-aj-hub" firstAttribute="centerX" secondItem="AQy-VY-Mmo" secondAttribute="centerX" id="9Oo-97-uXv"/>
                             <constraint firstItem="Vz7-LY-dNC" firstAttribute="centerX" secondItem="qsB-FS-Iil" secondAttribute="centerX" id="ONb-6U-ENd"/>
                             <constraint firstItem="ILe-80-sLJ" firstAttribute="leading" secondItem="qsB-FS-Iil" secondAttribute="leading" id="PYn-GA-mr6"/>
-                            <constraint firstItem="utG-cW-ScF" firstAttribute="centerX" secondItem="3KN-aj-hub" secondAttribute="centerX" id="VZB-og-LHe"/>
                             <constraint firstItem="qsB-FS-Iil" firstAttribute="trailing" secondItem="CJS-kQ-6Ys" secondAttribute="trailing" constant="12" id="WJh-qO-2ZD"/>
-                            <constraint firstItem="3KN-aj-hub" firstAttribute="centerY" secondItem="AQy-VY-Mmo" secondAttribute="centerY" constant="-37" id="ZKs-oT-4Ub"/>
-                            <constraint firstItem="AQy-VY-Mmo" firstAttribute="top" secondItem="ILe-80-sLJ" secondAttribute="bottom" constant="8" id="bcM-EU-sCO"/>
-                            <constraint firstItem="ILe-80-sLJ" firstAttribute="top" secondItem="qsB-FS-Iil" secondAttribute="top" constant="8" id="cn0-ZJ-kY8"/>
+                            <constraint firstItem="AQy-VY-Mmo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ILe-80-sLJ" secondAttribute="bottom" constant="4" id="bcM-EU-sCO"/>
                             <constraint firstItem="qsB-FS-Iil" firstAttribute="bottom" secondItem="CJS-kQ-6Ys" secondAttribute="bottom" constant="25" id="dRv-YZ-AzT"/>
                             <constraint firstItem="qsB-FS-Iil" firstAttribute="trailing" secondItem="ILe-80-sLJ" secondAttribute="trailing" id="gW7-3C-ZFU"/>
-                            <constraint firstItem="utG-cW-ScF" firstAttribute="centerY" secondItem="AQy-VY-Mmo" secondAttribute="centerY" constant="37" id="iIR-dt-fPH"/>
-                            <constraint firstItem="AQy-VY-Mmo" firstAttribute="leading" secondItem="qsB-FS-Iil" secondAttribute="leading" id="qK2-1w-ycX"/>
-                            <constraint firstItem="CJS-kQ-6Ys" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AQy-VY-Mmo" secondAttribute="bottom" constant="12" id="qWY-1a-Nrm"/>
-                            <constraint firstItem="AQy-VY-Mmo" firstAttribute="trailing" secondItem="qsB-FS-Iil" secondAttribute="trailing" id="zYT-wn-vyJ"/>
+                            <constraint firstItem="AQy-VY-Mmo" firstAttribute="leading" relation="lessThanOrEqual" secondItem="qsB-FS-Iil" secondAttribute="leading" id="qK2-1w-ycX"/>
+                            <constraint firstItem="CJS-kQ-6Ys" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AQy-VY-Mmo" secondAttribute="bottom" constant="4" id="qWY-1a-Nrm"/>
+                            <constraint firstItem="AQy-VY-Mmo" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="qsB-FS-Iil" secondAttribute="trailing" id="zYT-wn-vyJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qsB-FS-Iil"/>
                     </view>
@@ -305,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="263" y="131"/>
+            <point key="canvasLocation" x="261.60000000000002" y="130.88455772113943"/>
         </scene>
         <!--Baseball Card View Controller-->
         <scene sceneID="gBX-Zj-IEN">

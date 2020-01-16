@@ -13,12 +13,14 @@ class MainViewController: UIViewController {
     var dice = Dice()
     var resultLabels = ResultLabels()
     var league = League()
+    var ballImageView = BallImage()
     var rollResultText = ""
     
     var leftDiceImage = UIImageView()
     var rightDiceImage = UIImageView()
     var mainLabel = UILabel()
     var secondaryLabel = UILabel()
+    var ballImage = UIImageView()
     
     let awayTeam: Team
     let homeTeam: Team
@@ -59,11 +61,21 @@ class MainViewController: UIViewController {
         rightDiceImage = dice.rightDiceImage
         mainLabel = resultLabels.mainLabel
         secondaryLabel = resultLabels.secondaryLabel
+ 
+        ballImage = ballImageView.ballImageView
         
         view.addSubview(leftDiceImage)
         view.addSubview(rightDiceImage)
         view.addSubview(mainLabel)
         view.addSubview(secondaryLabel)
+        
+        // experiement with baseballImage
+        ballImage.center.x = view.bounds.width / 2
+        ballImage.center.y = fieldImage.frame.height + 100
+        ballImage.alpha = 0
+               
+        view.addSubview(ballImage)
+        
         
         rollButton.isEnabled = false
         rollButton.alpha = 0.3
@@ -71,6 +83,8 @@ class MainViewController: UIViewController {
         mainLabel.text = ""
         secondaryLabel.text = "Press 'New Game' to start."
         atBatLabel.text = ""
+        
+       
     }
     
     @IBAction func newGameTapped(_ sender: UIButton) {
@@ -101,6 +115,8 @@ class MainViewController: UIViewController {
 
         handleResultLabels()
         
+        ballImageView.animateBall()
+        
         // *************** //
         // TODO:- handle baserunners, runs, outs, inning changes
         
@@ -110,6 +126,9 @@ class MainViewController: UIViewController {
             self.startButtonAnimation()
         }
     }
+    
+    
+    
     
     func nextBatter() {
         

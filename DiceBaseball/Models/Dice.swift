@@ -39,11 +39,11 @@ class Dice: UIView {
            
         leftDiceImage.image = UIImage(named: "Dice2")
         leftDiceImage.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        leftDiceImage.center = CGPoint(x: screenWidth/2 - 30, y: screenHeight - 135)
+        leftDiceImage.center = CGPoint(x: screenWidth/2 - 30, y: screenHeight * 0.8)
            
         rightDiceImage.image = UIImage(named: "Dice6")
         rightDiceImage.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        rightDiceImage.center = CGPoint(x: screenWidth/2 + 30, y: screenHeight - 135)
+        rightDiceImage.center = CGPoint(x: screenWidth/2 + 30, y: leftDiceImage.center.y)
            
     }
 
