@@ -38,7 +38,7 @@ class BallImage: UIView {
         ballImageView.alpha = 1.0
         let originalPosition = ballImageView.center
         
-        UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, animations: {
+        UIView.animateKeyframes(withDuration: 3.0, delay: 0.0, animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.33, animations: {
                 self.ballImageView.center.x += 40.0
                 self.ballImageView.center.y -= 200
@@ -47,11 +47,12 @@ class BallImage: UIView {
             UIView.addKeyframe(withRelativeStartTime: 0.33, relativeDuration: 0.33, animations: {
                 self.ballImageView.center.x += 40.0
                 self.ballImageView.center.y -= 200.0
-                self.ballImageView.transform = .identity
+                self.ballImageView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
             })
             UIView.addKeyframe(withRelativeStartTime: 0.67, relativeDuration: 0.33, animations: {
                 self.ballImageView.center.x += 40.0
                 self.ballImageView.center.y -= 200.0
+                self.ballImageView.transform = .identity
                 
             })
         }, completion: {

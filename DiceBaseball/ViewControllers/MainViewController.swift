@@ -71,8 +71,11 @@ class MainViewController: UIViewController {
         
         // experiement with baseballImage
         ballImage.center.x = view.bounds.width / 2
-        ballImage.center.y = fieldImage.frame.height + 100
-        ballImage.alpha = 0
+        //ballImage.center.y = fieldImage.bounds.height + 100
+        ballImage.center.y = fieldImage.center.y * 1.28
+        print("FieldFrame:\(fieldImage.frame.height)")
+        
+        ballImage.alpha = 0 //
                
         view.addSubview(ballImage)
         
