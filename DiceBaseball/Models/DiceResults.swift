@@ -16,6 +16,7 @@ extension Player {
         case double = "Double"
         case triple = "Triple"
         case homerun = "Homerun"
+        case out = "Out" // will split into several types
     }
     
     
