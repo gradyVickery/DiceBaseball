@@ -16,16 +16,17 @@ class MainViewController: UIViewController {
     var ballImageView = BallImage()
     var rollResultText = ""
     
+    // Views
     var leftDiceImage = UIImageView()
     var rightDiceImage = UIImageView()
     var mainLabel = UILabel()
     var secondaryLabel = UILabel()
     var ballImage = UIImageView()
     
+    // Teams and batting order
     let awayTeam: Team
     let homeTeam: Team
     var currentBatter: Player
-    
     var awayBatterIndex = 0
     var homeBatterIndex = 0
     
@@ -36,14 +37,12 @@ class MainViewController: UIViewController {
     var inning = 1
     var outs = 0
     
-    var rollButtonIsAnimated = false
-    
+    // Outlet Variables
     @IBOutlet weak var awayTeamScoreLabel: UILabel!
     @IBOutlet weak var homeTeamScoreLabel: UILabel!
     @IBOutlet weak var inningLabel: UILabel!
     @IBOutlet weak var atBatLabel: UILabel!
     @IBOutlet weak var outsLabel: UILabel!
-    
     @IBOutlet weak var fieldImage: UIImageView!
     @IBOutlet weak var rollButton: UIButton!
     
@@ -54,43 +53,39 @@ class MainViewController: UIViewController {
         super.init(coder: coder)
    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         leftDiceImage = dice.leftDiceImage
         rightDiceImage = dice.rightDiceImage
         mainLabel = resultLabels.mainLabel
         secondaryLabel = resultLabels.secondaryLabel
- 
         ballImage = ballImageView.ballImageView
+        ballImage.center.x = view.bounds.width / 2
+        ballImage.center.y = fieldImage.center.y * 1.28
+        ballImage.alpha = 0
         
         view.addSubview(leftDiceImage)
         view.addSubview(rightDiceImage)
         view.addSubview(mainLabel)
         view.addSubview(secondaryLabel)
-        
-        // experiement with baseballImage
-        ballImage.center.x = view.bounds.width / 2
-        //ballImage.center.y = fieldImage.bounds.height + 100
-        ballImage.center.y = fieldImage.center.y * 1.28
-        print("FieldFrame:\(fieldImage.frame.height)")
-        
-        ballImage.alpha = 0 //
-               
         view.addSubview(ballImage)
-        
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
         rollButton.isEnabled = false
         rollButton.alpha = 0.3
         inningLabel.text = "Warmup"
         mainLabel.text = ""
-        secondaryLabel.text = "Press 'New Game' to start."
         atBatLabel.text = ""
         
-       
     }
     
     @IBAction func newGameTapped(_ sender: UIButton) {
+        
+        //handle in game tap on button
+        
         resultLabels.slideSecondaryLabelOut(withDelay: 0.5)
         league.assignTeamNames()
         
@@ -99,9 +94,8 @@ class MainViewController: UIViewController {
         atBatLabel.text = currentBatter.lastName + " " + currentBatter.position.rawValue
         mainLabel.text = "Play Ball!"
         resultLabels.fadeMainLabelOut(withDelay: 3.0)
-        delay(5.0) {
+        delay(3.0) {
             self.startButtonAnimation()
-            self.mainLabel.text = ""
         }
 
     }
@@ -116,64 +110,43 @@ class MainViewController: UIViewController {
         let rollResult = currentBatter.getDiceResults(dice1: rollTuple.0, dice2: rollTuple.1)
         rollResultText = rollResult.rawValue
 
-        handleResultLabels()
         
-        ballImageView.animateBall()
+        resultLabels.handleResultLabels(text: rollResultText)
+        ballImageView.animateBall(hit: rollResult)
         
         // *************** //
         // TODO:- handle baserunners, runs, outs, inning changes
         
-        // delay allows labels time to be read
         delay(6.0) {
             self.nextBatter()
             self.startButtonAnimation()
         }
     }
-    
-    
-    
-    
+
     func nextBatter() {
-        
         if awayBatterIndex < awayTeam.players.count - 1 {
             awayBatterIndex += 1
         } else {
             awayBatterIndex = 0
         }
-   
         currentBatter = awayTeam.players[awayBatterIndex]
         atBatLabel.text = currentBatter.lastName + " " + currentBatter.position.rawValue
     }
-    
-    
-    
-    func handleResultLabels() {
-        mainLabel.text = rollResultText
-        secondaryLabel.text = "You have baserunners on 1st and 3rd"
-        
-        resultLabels.slideMainLabelIn(withDelay: 0.9)
-        resultLabels.slideSecondaryLabelIn(withDelay: 2.1)
-        resultLabels.slideMainLabelOut(withDelay: 5.0)
-        resultLabels.slideSecondaryLabelOut(withDelay: 6.0)
-    }
+ 
     // MARK:- Animation
     func startButtonAnimation() {
-        // animate Roll button
-        rollButton.alpha = 1.0
+        //rollButton.alpha = 1.0
         rollButton.isEnabled = true
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.repeat, .autoreverse, .allowUserInteraction ], animations: {
-            self.rollButton.alpha = 0.4
+            self.rollButton.alpha = 1.0
         }, completion: nil)
     }
-    
     func stopButtonAnimation() {
         UIView.animate(withDuration: 0.1, delay: 0.0, options: [], animations: {
             self.rollButton.alpha = 0.3
         }, completion: nil)
         rollButton.isEnabled = false
-        
     }
-
 
     // MARK:- Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

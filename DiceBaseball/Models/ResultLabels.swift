@@ -27,7 +27,6 @@ class ResultLabels: UIView {
     func createSubviews() {
 
         mainLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 100)
-        mainLabel.text = "Testing 1, 2, 3"
         mainLabel.center = CGPoint(x: screenWidth/2, y: screenHeight/2 - 40)
         mainLabel.textColor = .white
         mainLabel.textAlignment = .center
@@ -36,17 +35,30 @@ class ResultLabels: UIView {
         mainLabel.shadowOffset = CGSize(width: 3, height: 3)
         
         secondaryLabel.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 100)
-        secondaryLabel.text = "Testing 1, 2, 3"
+        secondaryLabel.text = "Press 'New Game' to start"
         secondaryLabel.center = CGPoint(x: screenWidth/2, y: screenHeight/2 + 40)
         secondaryLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         secondaryLabel.textColor = .white
         secondaryLabel.textAlignment = .center
-        
         secondaryLabel.shadowColor = UIColor.black
         secondaryLabel.shadowOffset = CGSize(width: 1, height: 4)
        
     }
+    func handleResultLabels(text: String) {
+        mainLabel.text = text
+        
+        // *********************************************
+        // need to read baserunners and runs scored here
+        
+        secondaryLabel.text = "You have baserunners on 1st and 3rd"
+        
+        slideMainLabelIn(withDelay: 0.9)
+        slideSecondaryLabelIn(withDelay: 2.1)
+        slideMainLabelOut(withDelay: 5.0)
+        slideSecondaryLabelOut(withDelay: 6.0)
+    }
     
+    // MARK:- Label Animations
     func slideMainLabelIn(withDelay delay: Double) {
         mainLabel.center.x -= screenWidth
         mainLabel.alpha = 1

@@ -15,8 +15,9 @@ extension Player {
         case single = "Single"
         case double = "Double"
         case triple = "Triple"
-        case homerun = "homerun"
+        case homerun = "Homerun"
     }
+    
     
 
     
@@ -26,41 +27,41 @@ extension Player {
         case (1, 1):
             return .single
         case (1, 2):
-            return .single
+            return .double
         case (1, 3):
-            return .single
+            return .triple
         case (1, 4):
-            return .single
+            return .homerun
         case (1, 5):
             return .single
         case (1, 6):
-            return .single
+            return .double
         case (2, 2):
-            return .single
+            return .triple
         case (2, 3):
-            return .single
+            return .homerun
         case (2, 4):
             return .single
         case (2, 5):
             return .double
         case (2, 6):
-            return .single
+            return .triple
         case (3, 3):
-            return .single
+            return .homerun
         case (3, 4):
             return .single
         case (3, 5):
-            return .single
+            return .double
         case (3, 6):
-            return .single
+            return .triple
         case (4, 4):
-            return .single
+            return .homerun
         case (4, 5):
             return .single
         case (4, 6):
-            return .single
+            return .double
         case (5, 5):
-            return .single
+            return .triple
         case (5, 6):
             return .triple
         default:
